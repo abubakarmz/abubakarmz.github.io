@@ -7,55 +7,56 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <header class="header">
+    <header class="mobile-header">
         <div class="logo">Город для подростков</div>
-        <nav>
-            <a href="#about">О проекте</a>
-            <a href="#events">Мероприятия</a>
-            <a href="#contact">Контакты</a>
-        </nav>
     </header>
 
-    <section class="hero">
-        <h1>Найдите лучшее время для вашего ребенка</h1>
-        <p>Подберите кружки, мероприятия и активности для подростков прямо сейчас!</p>
-        <button onclick="alert('Функция скоро появится')">Начать поиск</button>
-    </section>
-
-    <section id="about" class="about">
-        <h2>О проекте</h2>
-        <p>“Город для подростков” – это удобная платформа для поиска мероприятий, кружков и активностей. Управляйте расписанием всей семьи в одном месте!</p>
-    </section>
-
-    <section id="events" class="events">
-        <h2>Популярные мероприятия</h2>
-        <div class="event-card">
-            <img src="https://via.placeholder.com/150" alt="Робототехника">
-            <div class="event-info">
-                <h3>Кружок робототехники</h3>
-                <p>Местоположение: Городской центр науки</p>
-                <button>Бронировать</button>
+    <section class="recommendations">
+        <h2>По вашим интересам</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3>Кружок робототехники</h3>
+                    <p>11 апреля, 20:00</p>
+                </div>
             </div>
-        </div>
-        <div class="event-card">
-            <img src="https://via.placeholder.com/150" alt="Рисование">
-            <div class="event-info">
-                <h3>Мастер-класс по рисованию</h3>
-                <p>Местоположение: Арт-студия</p>
-                <button>Бронировать</button>
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3>Мастер-класс по рисованию</h3>
+                    <p>18 декабря</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Контакты</h2>
-        <p>Если у вас есть вопросы, свяжитесь с нами:</p>
-        <p>Email: info@teencity.ru</p>
-        <p>Телефон: +7 (123) 456-78-90</p>
+    <section class="upcoming-events">
+        <h2>События в ближайшие дни</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3>Ледовый каток</h3>
+                    <p>30 и 31 декабря</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3>Хроники чудес</h3>
+                    <p>1 января</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Город для подростков</p>
+    <footer class="mobile-footer">
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Поиск</a>
+            <a href="#">Профиль</a>
+        </nav>
     </footer>
 </body>
 </html>
