@@ -7,58 +7,62 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <header class="mobile-header">
-        <div class="logo">Город для подростков</div>
-    </header>
+    <div class="app">
+        <!-- Шапка приложения -->
+        <header class="app-header">
+            <h1>Город для подростков</h1>
+        </header>
 
-    <section class="recommendations">
-        <h2>По вашим интересам</h2>
-        <div class="card-container">
-            <div class="card">
-                <div class="card-image"></div>
-                <div class="card-content">
-                    <h3>Кружок робототехники</h3>
-                    <p>11 апреля, 20:00</p>
+        <!-- Блок рекомендаций -->
+        <section class="section recommendations">
+            <h2>По вашим интересам</h2>
+            <div class="scroll-container">
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/150');"></div>
+                    <div class="card-info">
+                        <h3>Кружок робототехники</h3>
+                        <p>11 апреля, 20:00</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/150');"></div>
+                    <div class="card-info">
+                        <h3>Мастер-класс по рисованию</h3>
+                        <p>18 декабря</p>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-image"></div>
-                <div class="card-content">
-                    <h3>Мастер-класс по рисованию</h3>
-                    <p>18 декабря</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="upcoming-events">
-        <h2>События в ближайшие дни</h2>
-        <div class="card-container">
-            <div class="card">
-                <div class="card-image"></div>
-                <div class="card-content">
-                    <h3>Ледовый каток</h3>
-                    <p>30 и 31 декабря</p>
+        <!-- Блок ближайших событий -->
+        <section class="section upcoming-events">
+            <h2>События в ближайшие дни</h2>
+            <div class="scroll-container">
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/150');"></div>
+                    <div class="card-info">
+                        <h3>Каток на площади</h3>
+                        <p>30 декабря</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/150');"></div>
+                    <div class="card-info">
+                        <h3>Шоу "Хроники чудес"</h3>
+                        <p>1 января</p>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-image"></div>
-                <div class="card-content">
-                    <h3>Хроники чудес</h3>
-                    <p>1 января</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="mobile-footer">
-        <nav>
-            <a href="#">Главная</a>
-            <a href="#">Поиск</a>
-            <a href="#">Профиль</a>
-        </nav>
-    </footer>
+        <!-- Нижнее меню -->
+        <footer class="app-footer">
+            <nav class="footer-nav">
+                <a href="#">Главная</a>
+                <a href="#">Мероприятия</a>
+                <a href="#">Профиль</a>
+            </nav>
+        </footer>
+    </div>
 </body>
 </html>
-
-
