@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Город для подростков</h1>
+    <header class="header">
+        <div class="logo">Город для подростков</div>
         <nav>
             <a href="#about">О проекте</a>
             <a href="#events">Мероприятия</a>
@@ -16,27 +16,40 @@
         </nav>
     </header>
 
-    <section id="about">
+    <section class="hero">
+        <h1>Найдите лучшее время для вашего ребенка</h1>
+        <p>Подберите кружки, мероприятия и активности для подростков прямо сейчас!</p>
+        <button onclick="alert('Функция скоро появится')">Начать поиск</button>
+    </section>
+
+    <section id="about" class="about">
         <h2>О проекте</h2>
-        <p>Мы помогаем подросткам и их родителям находить интересные мероприятия, управлять расписанием и организовывать досуг.</p>
+        <p>“Город для подростков” – это удобная платформа для поиска мероприятий, кружков и активностей. Управляйте расписанием всей семьи в одном месте!</p>
     </section>
 
-    <section id="events">
+    <section id="events" class="events">
         <h2>Популярные мероприятия</h2>
-        <div class="event">
-            <h3>Кружок робототехники</h3>
-            <p>Местоположение: Городской центр науки</p>
-            <button>Бронировать</button>
+        <div class="event-card">
+            <img src="https://via.placeholder.com/150" alt="Робототехника">
+            <div class="event-info">
+                <h3>Кружок робототехники</h3>
+                <p>Местоположение: Городской центр науки</p>
+                <button>Бронировать</button>
+            </div>
         </div>
-        <div class="event">
-            <h3>Мастер-класс по рисованию</h3>
-            <p>Местоположение: Арт-студия</p>
-            <button>Бронировать</button>
+        <div class="event-card">
+            <img src="https://via.placeholder.com/150" alt="Рисование">
+            <div class="event-info">
+                <h3>Мастер-класс по рисованию</h3>
+                <p>Местоположение: Арт-студия</p>
+                <button>Бронировать</button>
+            </div>
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact">
         <h2>Контакты</h2>
+        <p>Если у вас есть вопросы, свяжитесь с нами:</p>
         <p>Email: info@teencity.ru</p>
         <p>Телефон: +7 (123) 456-78-90</p>
     </section>
@@ -46,5 +59,3 @@
     </footer>
 </body>
 </html>
-
-
