@@ -1,41 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>kendrick lamar</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f2f2f2;
-      padding: 50px;
-    }
-
-    h1 {
-      color: #333;
-      margin-top: 50px;
-    }
-
-    .links {
-      margin-top: 20px;
-    }
-
-    .links a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px;
-      background-color: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Город для подростков</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>kendrick lamar</h1>
-  <div class="links">
-    <a href="<https://vk.com/abubakarmz>">VK</a>
-    <a href="<https://telegram.me/abubakarmz>">Telegram</a>
-    <a href="<https://github.com/abubakarmz>">GitHub</a>
-  </div>
+    <header>
+        <div class="container">
+            <h1>Город для подростков</h1>
+            <nav>
+                <ul>
+                    <li><a href="#events">Мероприятия</a></li>
+                    <li><a href="#recommendations">Рекомендации</a></li>
+                    <li><a href="#booking">Бронирование</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Найди свое мероприятие!</h2>
+            <p>Платформа для подростков и их родителей, чтобы находить и бронировать интересные мероприятия, секции и кружки.</p>
+            <a href="#events" class="btn">Начать</a>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="container">
+            <h2>Мероприятия рядом</h2>
+            <div class="event-card">
+                <img src="placeholder.jpg" alt="Мероприятие 1">
+                <h3>Мероприятие 1</h3>
+                <p>Описание мероприятия 1.</p>
+            </div>
+            <!-- Добавить更多的活动卡片 -->
+        </div>
+    </section>
+
+    <section id="recommendations">
+        <div class="container">
+            <h2>Рекомендации</h2>
+            <p>Выберите ваши интересы:</p>
+            <!-- 静态兴趣选择 -->
+            <div class="interests">
+                <label><input type="checkbox" name="interest" value="music"> Музыка</label>
+                <label><input type="checkbox" name="interest" value="sports"> Спорт</label>
+                <!-- 添加更多兴趣选项 -->
+            </div>
+            <h3>Рекомендованные мероприятия</h3>
+            <!-- 显示基于兴趣的推荐活动 -->
+            <div class="recommended-event">
+                <img src="placeholder.jpg" alt="Рекомендованное мероприятие">
+                <h3>Рекомендованное мероприятие</h3>
+                <p>Описание рекомендованного мероприятия.</p>
+            </div>
+            <!-- 添加更多推荐活动 -->
+        </div>
+    </section>
+
+    <section id="booking">
+        <div class="container">
+            <h2>Бронирование</h2>
+            <form>
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" placeholder="Ваше имя">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Ваш email">
+                <label for="event">Мероприятие:</label>
+                <select id="event" name="event">
+                    <option value="event1">Мероприятие 1</option>
+                    <option value="event2">Мероприятие 2</option>
+                    <!-- 添加更多活动选项 -->
+                </select>
+                <button type="submit" class="btn">Забронировать</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <div class="container">
+            <h2>Отзывы</h2>
+            <div class="review">
+                <p>"Отличное мероприятие!"</p>
+                <span>4.5 звезд</span>
+            </div>
+            <!-- 添加更多评论 -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Город для подростков. Все права защищены.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Помощь</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>
