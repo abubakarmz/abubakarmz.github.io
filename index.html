@@ -4,105 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Город для подростков</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Город для подростков</h1>
-            <nav>
-                <ul>
-                    <li><a href="#events">Мероприятия</a></li>
-                    <li><a href="#recommendations">Рекомендации</a></li>
-                    <li><a href="#booking">Бронирование</a></li>
-                    <li><a href="#reviews">Отзывы</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Город для подростков</h1>
+        <nav>
+            <a href="#create-profile">Создать профиль</a>
+            <a href="#search-events">Поиск мероприятий</a>
+            <a href="#book-event">Бронирование мероприятий</a>
+            <a href="#rate-event">Оценить мероприятие</a>
+            <a href="#calendar-integration">Интеграция с календарями</a>
+            <a href="#notifications">Уведомления</a>
+        </nav>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Найди свое мероприятие!</h2>
-            <p>Платформа для подростков и их родителей, чтобы находить и бронировать интересные мероприятия, секции и кружки.</p>
-            <a href="#events" class="btn">Начать</a>
-        </div>
-    </section>
-
-    <section id="events">
-        <div class="container">
-            <h2>Мероприятия рядом</h2>
-            <div class="event-card">
-                <img src="placeholder.jpg" alt="Мероприятие 1">
-                <h3>Мероприятие 1</h3>
-                <p>Описание мероприятия 1.</p>
+    <main>
+        <!-- Flash-сообщения -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+              {% endfor %}
             </div>
-            <!-- Добавить更多的活动卡片 -->
-        </div>
-    </section>
+          {% endif %}
+        {% endwith %}
 
-    <section id="recommendations">
-        <div class="container">
-            <h2>Рекомендации</h2>
-            <p>Выберите ваши интересы:</p>
-            <!-- 静态兴趣选择 -->
-            <div class="interests">
-                <label><input type="checkbox" name="interest" value="music"> Музыка</label>
-                <label><input type="checkbox" name="interest" value="sports"> Спорт</label>
-                <!-- 添加更多兴趣选项 -->
+        <!-- Выбор интересов -->
+        <section class="interests" id="interests">
+            <h2>Выберите свой интерес</h2>
+            <div class="interests-grid">
+                {% for interest in interests %}
+                <div class="interest-card">
+                    <div class="interest-icon">{{ interest }}</div>
+                    <h3>{{ interest }}</h3>
+                    <form action="{{ url_for('search_events') }}" method="POST">
+                        <input type="hidden" name="interest" value="{{ interest }}">
+                        <button type="submit">Исследовать</button>
+                    </form>
+                </div>
+                {% endfor %}
             </div>
-            <h3>Рекомендованные мероприятия</h3>
-            <!-- 显示基于兴趣的推荐活动 -->
-            <div class="recommended-event">
-                <img src="placeholder.jpg" alt="Рекомендованное мероприятие">
-                <h3>Рекомендованное мероприятие</h3>
-                <p>Описание рекомендованного мероприятия.</p>
-            </div>
-            <!-- 添加更多推荐活动 -->
-        </div>
-    </section>
+        </section>
 
-    <section id="booking">
-        <div class="container">
-            <h2>Бронирование</h2>
-            <form>
-                <label for="name">Имя:</label>
-                <input type="text" id="name" name="name" placeholder="Ваше имя">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Ваш email">
-                <label for="event">Мероприятие:</label>
-                <select id="event" name="event">
-                    <option value="event1">Мероприятие 1</option>
-                    <option value="event2">Мероприятие 2</option>
-                    <!-- 添加更多活动选项 -->
-                </select>
-                <button type="submit" class="btn">Забронировать</button>
+        <!-- Создание профиля -->
+        <section class="form-section" id="create-profile">
+            <h2>Создание профиля</h2>
+            <form action="{{ url_for('create_profile') }}" method="POST">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="interests">Интересы (через запятую):</label>
+                    <input type="text" id="interests" name="interests" required>
+                </div>
+                <button type="submit">Сохранить профиль</button>
             </form>
-        </div>
-    </section>
+        </section>
 
-    <section id="reviews">
-        <div class="container">
-            <h2>Отзывы</h2>
-            <div class="review">
-                <p>"Отличное мероприятие!"</p>
-                <span>4.5 звезд</span>
-            </div>
-            <!-- 添加更多评论 -->
-        </div>
-    </section>
+        <!-- Поиск мероприятий -->
+        {% if events %}
+        <section class="events-results" id="search-events">
+            <h2>Результаты поиска:</h2>
+            <ul class="events-list">
+                {% for event in events %}
+                <li>{{ event }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <!-- Бронирование мероприятий -->
+        <section class="form-section" id="book-event">
+            <h2>Бронирование мероприятий</h2>
+            <form action="{{ url_for('book_event') }}" method="POST">
+                <div class="form-group">
+                    <label for="event">Выберите мероприятие:</label>
+                    <select id="event" name="event" required>
+                        <option value="" disabled selected>-- Выберите мероприятие --</option>
+                        <option value="Мероприятие 1">Мероприятие 1</option>
+                        <option value="Мероприятие 2">Мероприятие 2</option>
+                        <option value="Мероприятие 3">Мероприятие 3</option>
+                    </select>
+                </div>
+                <button type="submit">Забронировать</button>
+            </form>
+        </section>
+
+        <!-- Оценка мероприятий -->
+        <section class="form-section" id="rate-event">
+            <h2>Оценка мероприятий</h2>
+            <form action="{{ url_for('rate_event') }}" method="POST">
+                <div class="form-group">
+                    <label for="event-rate">Выберите мероприятие:</label>
+                    <select id="event-rate" name="event" required>
+                        <option value="" disabled selected>-- Выберите мероприятие --</option>
+                        <option value="Мероприятие 1">Мероприятие 1</option>
+                        <option value="Мероприятие 2">Мероприятие 2</option>
+                        <option value="Мероприятие 3">Мероприятие 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Оценка (1-5):</label>
+                    <select id="rating" name="rating" required>
+                        <option value="" disabled selected>-- Выберите оценку --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button type="submit">Оценить</button>
+            </form>
+        </section>
+
+        <!-- Интеграция с календарями -->
+        <section class="info-section" id="calendar-integration">
+            <h2>Интеграция с календарями</h2>
+            <p>Интеграция с Google Календарем и другими календарными сервисами для управления расписанием.</p>
+            <form action="{{ url_for('calendar_integration') }}" method="POST">
+                <button type="submit">Интегрировать календарь</button>
+            </form>
+        </section>
+
+        <!-- Уведомления и напоминания -->
+        <section class="info-section" id="notifications">
+            <h2>Уведомления и напоминания</h2>
+            <p>Получайте уведомления о бронированных мероприятиях и напоминания за 1 час до начала.</p>
+            <form action="{{ url_for('notifications') }}" method="POST">
+                <button type="submit">Настроить уведомления</button>
+            </form>
+        </section>
+    </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2023 Город для подростков. Все права защищены.</p>
-            <nav>
-                <ul>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Контакты</a></li>
-                    <li><a href="#">Помощь</a></li>
-                </ul>
-            </nav>
-        </div>
+        <p>&copy; 2024 Город для подростков. Все права защищены.</p>
     </footer>
 </body>
 </html>
