@@ -1,122 +1,208 @@
+/* Импорт Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Reset styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Общие стили */
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f2f2f2;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em 0;
+    background-color: #4a90e2;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
-    float: left;
+    margin: 0;
+    font-size: 2.5em;
 }
 
-header nav ul {
-    list-style: none;
-    float: right;
+nav {
+    margin-top: 10px;
 }
 
-header nav ul li {
-    display: inline;
-    margin-left: 1em;
-}
-
-header nav ul li a {
-    color: #fff;
+nav a {
+    color: white;
     text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    position: relative;
 }
 
-section {
-    padding: 2em 0;
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width .3s;
 }
 
-#hero {
-    background-image: url('hero-background.jpg');
-    background-size: cover;
-    color: #fff;
-    text-align: center;
-}
-
-#hero h2 {
-    margin-bottom: 1em;
-}
-
-.btn {
-    display: inline-block;
-    padding: 1em 2em;
-    background-color: #555;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.event-card {
-    background-color: #fff;
-    padding: 1em;
-    margin-bottom: 1em;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.event-card img {
+nav a:hover::after {
     width: 100%;
-    border-radius: 5px;
 }
 
-.recommended-event {
-    background-color: #fff;
-    padding: 1em;
-    margin-bottom: 1em;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
+/* Flash-сообщения */
+.flash-messages {
+    margin-bottom: 20px;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.alert.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Секции */
+.interests, .form-section, .info-section, .events-results {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.interests h2, .form-section h2, .info-section h2, .events-results h2 {
     text-align: center;
-    padding: 1em 0;
+    margin-bottom: 30px;
+    color: #4a90e2;
 }
 
-footer nav ul {
-    list-style: none;
-    margin-top: 1em;
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-footer nav ul li {
-    display: inline;
-    margin: 0 1em;
+.interest-card {
+    background-color: #e9f5ff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-footer nav ul li a {
-    color: #fff;
-    text-decoration: none;
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* 响应式布局 */
-@media (max-width: 768px) {
-    header h1, header nav {
-        float: none;
-        text-align: center;
-    }
+.interest-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #4a90e2;
+}
 
-    header nav ul li {
-        display: block;
-        margin: 0.5em 0;
-    }
+.interest-card h3 {
+    margin-bottom: 15px;
+}
+
+.interest-card button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+.interest-card button:hover {
+    background-color: #357ab8;
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #357ab8;
+    transform: scale(1.05);
+}
+
+/* Список мероприятий */
+.events-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.events-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #4a90e2;
+}
+
+/* Информационные секции */
+.info-section p {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.info-section button {
+    display: block;
+    margin: 0 auto;
 }
