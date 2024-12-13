@@ -1,147 +1,48 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Город для подростков</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <header>
         <h1>Город для подростков</h1>
         <nav>
-            <a href="#create-profile">Создать профиль</a>
-            <a href="#search-events">Поиск мероприятий</a>
-            <a href="#book-event">Бронирование мероприятий</a>
-            <a href="#rate-event">Оценить мероприятие</a>
-            <a href="#calendar-integration">Интеграция с календарями</a>
-            <a href="#notifications">Уведомления</a>
+            <a href="#about">О проекте</a>
+            <a href="#events">Мероприятия</a>
+            <a href="#contact">Контакты</a>
         </nav>
     </header>
 
-    <main>
-        <!-- Flash-сообщения -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            <div class="flash-messages">
-              {% for category, message in messages %}
-                <div class="alert {{ category }}">{{ message }}</div>
-              {% endfor %}
-            </div>
-          {% endif %}
-        {% endwith %}
+    <section id="about">
+        <h2>О проекте</h2>
+        <p>Мы помогаем подросткам и их родителям находить интересные мероприятия, управлять расписанием и организовывать досуг.</p>
+    </section>
 
-        <!-- Выбор интересов -->
-        <section class="interests" id="interests">
-            <h2>Выберите свой интерес</h2>
-            <div class="interests-grid">
-                {% for interest in interests %}
-                <div class="interest-card">
-                    <div class="interest-icon">{{ interest }}</div>
-                    <h3>{{ interest }}</h3>
-                    <form action="{{ url_for('search_events') }}" method="POST">
-                        <input type="hidden" name="interest" value="{{ interest }}">
-                        <button type="submit">Исследовать</button>
-                    </form>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
+    <section id="events">
+        <h2>Популярные мероприятия</h2>
+        <div class="event">
+            <h3>Кружок робототехники</h3>
+            <p>Местоположение: Городской центр науки</p>
+            <button>Бронировать</button>
+        </div>
+        <div class="event">
+            <h3>Мастер-класс по рисованию</h3>
+            <p>Местоположение: Арт-студия</p>
+            <button>Бронировать</button>
+        </div>
+    </section>
 
-        <!-- Создание профиля -->
-        <section class="form-section" id="create-profile">
-            <h2>Создание профиля</h2>
-            <form action="{{ url_for('create_profile') }}" method="POST">
-                <div class="form-group">
-                    <label for="name">Имя:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="interests">Интересы (через запятую):</label>
-                    <input type="text" id="interests" name="interests" required>
-                </div>
-                <button type="submit">Сохранить профиль</button>
-            </form>
-        </section>
-
-        <!-- Поиск мероприятий -->
-        {% if events %}
-        <section class="events-results" id="search-events">
-            <h2>Результаты поиска:</h2>
-            <ul class="events-list">
-                {% for event in events %}
-                <li>{{ event }}</li>
-                {% endfor %}
-            </ul>
-        </section>
-        {% endif %}
-
-        <!-- Бронирование мероприятий -->
-        <section class="form-section" id="book-event">
-            <h2>Бронирование мероприятий</h2>
-            <form action="{{ url_for('book_event') }}" method="POST">
-                <div class="form-group">
-                    <label for="event">Выберите мероприятие:</label>
-                    <select id="event" name="event" required>
-                        <option value="" disabled selected>-- Выберите мероприятие --</option>
-                        <option value="Мероприятие 1">Мероприятие 1</option>
-                        <option value="Мероприятие 2">Мероприятие 2</option>
-                        <option value="Мероприятие 3">Мероприятие 3</option>
-                    </select>
-                </div>
-                <button type="submit">Забронировать</button>
-            </form>
-        </section>
-
-        <!-- Оценка мероприятий -->
-        <section class="form-section" id="rate-event">
-            <h2>Оценка мероприятий</h2>
-            <form action="{{ url_for('rate_event') }}" method="POST">
-                <div class="form-group">
-                    <label for="event-rate">Выберите мероприятие:</label>
-                    <select id="event-rate" name="event" required>
-                        <option value="" disabled selected>-- Выберите мероприятие --</option>
-                        <option value="Мероприятие 1">Мероприятие 1</option>
-                        <option value="Мероприятие 2">Мероприятие 2</option>
-                        <option value="Мероприятие 3">Мероприятие 3</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="rating">Оценка (1-5):</label>
-                    <select id="rating" name="rating" required>
-                        <option value="" disabled selected>-- Выберите оценку --</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <button type="submit">Оценить</button>
-            </form>
-        </section>
-
-        <!-- Интеграция с календарями -->
-        <section class="info-section" id="calendar-integration">
-            <h2>Интеграция с календарями</h2>
-            <p>Интеграция с Google Календарем и другими календарными сервисами для управления расписанием.</p>
-            <form action="{{ url_for('calendar_integration') }}" method="POST">
-                <button type="submit">Интегрировать календарь</button>
-            </form>
-        </section>
-
-        <!-- Уведомления и напоминания -->
-        <section class="info-section" id="notifications">
-            <h2>Уведомления и напоминания</h2>
-            <p>Получайте уведомления о бронированных мероприятиях и напоминания за 1 час до начала.</p>
-            <form action="{{ url_for('notifications') }}" method="POST">
-                <button type="submit">Настроить уведомления</button>
-            </form>
-        </section>
-    </main>
+    <section id="contact">
+        <h2>Контакты</h2>
+        <p>Email: info@teencity.ru</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Город для подростков. Все права защищены.</p>
+        <p>&copy; 2024 Город для подростков</p>
     </footer>
 </body>
 </html>
