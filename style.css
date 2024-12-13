@@ -2,85 +2,97 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
     color: #333;
 }
 
-h2 {
-    font-size: 1.2em;
-    margin: 20px 0 10px;
-    padding: 0 10px;
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* Шапка */
-.mobile-header {
+.app-header {
     background-color: #4CAF50;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 15px;
     font-size: 1.5em;
     font-weight: bold;
 }
 
-/* Рекомендации */
-.recommendations, .upcoming-events {
-    padding: 10px;
+/* Секции */
+.section {
+    padding: 15px;
 }
 
-.card-container {
+.section h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Карточки мероприятий */
+.scroll-container {
     display: flex;
+    overflow-x: auto;
     gap: 10px;
-    overflow-x: scroll;
-    padding-bottom: 10px;
 }
 
 .card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 160px;
     flex-shrink: 0;
+    width: 160px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-image {
     height: 100px;
-    background-color: #ccc;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    background-size: cover;
+    background-position: center;
 }
 
-.card-content {
+.card-info {
     padding: 10px;
     text-align: center;
 }
 
-.card-content h3 {
+.card-info h3 {
     font-size: 1em;
-    margin: 5px 0;
+    margin-bottom: 5px;
 }
 
-.card-content p {
+.card-info p {
     font-size: 0.9em;
     color: #666;
 }
 
-.mobile-footer {
+/* Нижнее меню */
+.app-footer {
+    background-color: #fff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
     position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
+    width: 100%;
 }
 
-.mobile-footer nav a {
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-nav a {
     text-decoration: none;
     color: #4CAF50;
     font-size: 0.9em;
+    font-weight: bold;
     text-align: center;
 }
-
