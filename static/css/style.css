@@ -1,0 +1,232 @@
+/* Общие стили */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding-top: 70px; /* Отступ для фиксированной навигационной панели */
+}
+
+/* Навигационная панель */
+.navbar-brand img {
+    transition: transform 0.3s;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #4a90e2;
+}
+
+/* Главный раздел */
+header {
+    position: relative;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Наложение затемнения на изображение */
+}
+
+header .container {
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header .btn-lg {
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+header .btn-lg:hover {
+    background-color: #357ab8;
+    transform: scale(1.05);
+}
+
+/* Раздел интересов */
+.interest-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.interest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-title {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #357ab8;
+    transform: scale(1.05);
+}
+
+/* Нижняя навигационная панель */
+.navbar.fixed-bottom a.nav-link {
+    color: #4a90e2;
+    font-size: 0.8rem;
+}
+
+.navbar.fixed-bottom a.nav-link i {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.navbar.fixed-bottom a.nav-link:hover {
+    color: #357ab8;
+}
+
+/* Футер */
+footer {
+    background-color: #f8f9fa;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    header {
+        height: 70vh;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    .btn-lg {
+        font-size: 1rem;
+        padding: 8px 20px;
+    }
+
+    .card-img-top {
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+/* Плавный скролл */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Дополнительные стили для улучшения визуального восприятия */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 600px;
+}
+
+.interest-card img.card-img-top {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+}
+
+/* Тени и анимации */
+.card {
+    border: none;
+    border-radius: 20px;
+}
+
+.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    border: none;
+}
+
+.btn-primary:focus, .btn-primary:active {
+    background-color: #357ab8;
+    box-shadow: none;
+}
+
+/* Плавные анимации для карточек */
+.interest-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.interest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Плавные анимации для кнопок */
+.btn-primary {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #357ab8;
+    transform: scale(1.05);
+}
