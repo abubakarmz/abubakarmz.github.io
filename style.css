@@ -1,127 +1,86 @@
-/* Основные стили */
+/* Общие стили */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
 }
 
-/* Шапка */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+h2 {
+    font-size: 1.2em;
+    margin: 20px 0 10px;
+    padding: 0 10px;
 }
 
-.header .logo {
+/* Шапка */
+.mobile-header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
     font-size: 1.5em;
     font-weight: bold;
 }
 
-.header nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+/* Рекомендации */
+.recommendations, .upcoming-events {
+    padding: 10px;
 }
 
-.header nav a:hover {
-    text-decoration: underline;
-}
-
-/* Главный экран */
-.hero {
-    text-align: center;
-    background-color: #e3f2fd;
-    padding: 50px 20px;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.hero button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-.hero button:hover {
-    background-color: #45a049;
-}
-
-/* О проекте */
-.about {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-/* Мероприятия */
-.events {
-    padding: 40px 20px;
+.card-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: #f9f9f9;
+    gap: 10px;
+    overflow-x: scroll;
+    padding-bottom: 10px;
 }
 
-.event-card {
+.card {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 160px;
+    flex-shrink: 0;
+}
+
+.card-image {
+    height: 100px;
+    background-color: #ccc;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-content {
+    padding: 10px;
     text-align: center;
 }
 
-.event-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+.card-content h3 {
+    font-size: 1em;
+    margin: 5px 0;
 }
 
-.event-info {
-    padding: 15px;
+.card-content p {
+    font-size: 0.9em;
+    color: #666;
 }
 
-.event-info h3 {
-    margin: 0 0 10px;
-}
-
-.event-info button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.event-info button:hover {
-    background-color: #45a049;
-}
-
-/* Контакты */
-.contact {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-/* Подвал */
-footer {
-    text-align: center;
+/* Нижнее меню */
+.mobile-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
     padding: 10px 0;
-    background-color: #333;
-    color: white;
+}
+
+.mobile-footer nav a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-size: 0.9em;
+    text-align: center;
 }
